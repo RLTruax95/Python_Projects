@@ -7,6 +7,7 @@ class Deck:
         self.reset_deck()
 #####################################################################
     def reset_deck(self):
+        self.cards = []
         for suit in ['Spade', 'Club', 'Diamond', 'Heart']:
             for value in ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']:
                 self.cards.append(Card(suit, value))
