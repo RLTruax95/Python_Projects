@@ -15,7 +15,9 @@ class Gameplay:
             self.deck.reset_deck()
             self.clear_table()
             self.starting_deal()
-            # if self.check_for_blackjack(): continue
+            if self.check_for_blackjack():
+                self.check_replay()
+                continue
             self.player_command()
             self.check_scores()
             if self.player_score > 21:
@@ -51,7 +53,10 @@ class Gameplay:
         if self.dealer_score > 21: print('Dealer Bust!')
 #####################################################################
     def check_for_blackjack(self):
-        return True
+        self.check_scores()
+        if self.player_score == 21:
+            print("Player Blackjack, Congrats")
+            return True
 #####################################################################
     def player_command(self):
         while True:
