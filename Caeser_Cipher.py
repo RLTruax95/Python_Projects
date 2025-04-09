@@ -10,9 +10,12 @@ def get_user_input():
 def encrypt(phrase: str, shift_val: int):
     encrypted_phrase = ''
     for char in phrase:
-        temp = ord(char) + shift_val
-        if temp > ord('z'):
-            temp -= 26
+        if ord(char) not in range(ord('a'), ord('z')):
+            if char == ' ': temp = ord(' ')
+            else: continue
+        else: temp = ord(char) + shift_val
+
+        if temp > ord('z'): temp -= 26
         encrypted_phrase = encrypted_phrase + chr(temp)
     return encrypted_phrase
 
